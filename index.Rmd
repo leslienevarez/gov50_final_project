@@ -39,7 +39,6 @@ View(Latinobarometro_2020_Eng)
 # Visualization of Data
 Latinobarometro_2020_Eng |> 
        ggplot(mapping = aes(x = edad)) + geom_bar()
-
 ```
 
 
