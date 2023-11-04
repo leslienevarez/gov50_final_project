@@ -14,22 +14,10 @@ output:
 I am interested in exploring data related to gerrymandering and its impact on electoral outcomes. Specifically, I would like to focus on Texas' southernmost congressional districts and observe how gerrymandering in the area has impacted voting patterns. 
 
 
-
-## Project milestone 2 
-```{r}
-url <- " https://alarm-redist.org/fifty-states/TX_cd_2020/"
-data <- read.csv(url)
-```
-
-Using a data set provided by the ALARM project, I aim to use Cory McCarten et.al's research on Texas' congressional district's voting patterns for the 2016 and 2020 electoral cycle. The research and dataset can be found here: https://alarm-redist.org/fifty-states/TX_cd_2020/ 
-
-Does gerrymandering affect the percentage of votes among minority groups? In this study, I plan to examine how gerrymandering in Texas’ southernmost congressional districts has impacted minority (non-white, particularly Hispanic and Black voters) voting outcomes. I hypothesize that minority votes in South Texas’ districts have increased in 2020 compared to 2016, suggesting that gerrymandering has minimal influence on voting participation. During the 2016 electoral voting, I expect minimal voting participation among Hispanic and Black voters compared to White voters. Whereas in the 2020 electoral voting, I expect more voter participation among Hispanic and Black voters. The explanatory variable is whether non-white voters’ electoral participation from 2016 to 2020 has changed as a result of gerrymandering. My outcome variable would be an increase in Black and Hispanic voting participation for the 2020 electoral voting cycle. If I observe an increase in non-white voter turnout, then this would support my hypothesis. On the other hand, if there is minimal change in non-white voter turnout, this would disprove my hypothesis. 
-
-** (this changed - needs updating)** 
-
-## Project Milesotne 3
+## Project Milestone 3
 
 ```{r}
+install.packages("XQuartz")
 library(tidyverse)
 library(ggplot2)
 load("F00011657-Latinobarometro_2020_Esp_R_Rdata_v1_0 (2)/Latinobarometro_2020_Eng_Rdata_v1_0.rdata")
