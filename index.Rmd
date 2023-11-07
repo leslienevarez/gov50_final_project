@@ -8,25 +8,30 @@ output:
 ---
 
 
+# Project Milestone 1
 
 ## Project thoughts
 
 I am interested in exploring data related to gerrymandering and its impact on electoral outcomes. Specifically, I would like to focus on Texas' southernmost congressional districts and observe how gerrymandering in the area has impacted voting patterns. 
 
+# Project Milestone 2
 
-## Project Milestone 3
 
-```{r}
-install.packages("XQuartz")
+
+# Project Milestone 3
+
+```{r, echo=F}
 library(tidyverse)
 library(ggplot2)
-load("F00011657-Latinobarometro_2020_Esp_R_Rdata_v1_0 (2)/Latinobarometro_2020_Eng_Rdata_v1_0.rdata")
-Latinobarometro_2020_Eng
-View(Latinobarometro_2020_Eng)
-
+Latinobarometro_2020_Eng <- read.csv("data/data.csv")
+```
+```{r}
 # Visualization of Data
 Latinobarometro_2020_Eng |> 
-       ggplot(mapping = aes(x = edad)) + geom_bar()
+       ggplot(mapping = aes(x = edad)) + geom_bar() +
+  labs(title = "Frequency of Ages of Respondents in Dataset",
+       x = "Age of Respondents",
+       y = "Frequency")
 ```
 
 
