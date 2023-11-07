@@ -1,0 +1,22 @@
+---
+title: "Milestone3"
+author: "Leslie Nevarez"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+```{r}
+library(tidyverse)
+load("F00011657-Latinobarometro_2020_Esp_R_Rdata_v1_0 (2)/Latinobarometro_2020_Eng_Rdata_v1_0.rdata")
+Latinobarometro_2020_Eng
+View(Latinobarometro_2020_Eng)
+
+Latinobarometro_2020_Eng |> 
+       ggplot(mapping = aes(x = edad, 
+                     y = s11.a)) + 
+  geom_scatter_point()
+```
+
