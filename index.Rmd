@@ -1,37 +1,59 @@
 ---
 title: "Gov 50 Final Project"
 author: "Leslie Nevarez"
-description: "My final project"
+description: "Age, Gender, and Trust in Latin American Governments"
 output:
   distill::distill_article:
     self_contained: false
 ---
 
+# Introduction
 
-# Project Milestone 1
+I am interested in exploring data related to public surveys conducted in Latin America. Specifically, I aim to explore whether respondent's age and gender are factors that impacts public trust and content within their respective governments.I aim to answer the following question: Does age and gender impact one's trust in their government? In this study, I plan to examine the extent to which voters across Latin American countries are satisfied with their established governments and considering whether age impacts such outcome. This study is of importance as it allows us to understand how public opinion is shaped by one's age and gender.
 
-## Project thoughts
+# Data
 
-I am interested in exploring data related to gerrymandering and its impact on electoral outcomes. Specifically, I would like to focus on Texas' southernmost congressional districts and observe how gerrymandering in the area has impacted voting patterns. 
+The research design of this study is cross sectional as the outcome and exposures in the study participants are measured simultaenously. As such, I hypothesize that voters living in a current and/or historically authoritarian country will report having minimal trust in their government. Additionally, I also hypothesize that as respondent's age increases, their trust/contentment in their government will also increase, and if a respondent identifies as "Woman" then their trust in their government decreases. My explanatory variables will be respondent's age, which is measured at 15+ years and respondent's gender, which is measured as 1 = Man and 2 = Woman. My outcome variable is respondent's trust in their government. For instance, in the data set obtained, respondent's were asked to rank their trust in the National Government (coded as P13ST.E. on data set) on a scale of 1 out of 4, where 1 = a lot of trust, 2 = some trust, 3 = little trust, and 4 = no trust. If I observe a increasing linear pattern as respondent's age increases, this will provide evidence in favor of my hypothesis, assuming gender is independent. However, if I observe no pattern between respondent's age, gender and trust in their national government, then it will provide evidence against my hypothesis. When I run my regression of trust in government congruent with respondent's increasing age and gender, a positive, significant coefficient would indicate support for my hypothesis.
 
-# Project Milestone 2
-
-
-
-# Project Milestone 3
+# Results
 
 ```{r, echo=F}
 library(tidyverse)
 library(ggplot2)
 Latinobarometro_2020_Eng <- read.csv("data/data.csv")
 ```
+
 ```{r}
 # Visualization of Data
 Latinobarometro_2020_Eng |> 
        ggplot(mapping = aes(x = edad)) + geom_bar() +
   labs(title = "Frequency of Ages of Respondents in Dataset",
        x = "Age of Respondents",
-       y = "Frequency")
+       y = "Number of Respondents")
 ```
 
+The graph above measures the frequency of respondent's age throughout Latin America were 15 years is the minimal age and 100 is the maximum. The graph suggests that the highest number of respondents were aged between 25 and 50 years of age and least number of respondents were aged 75+.
 
+```{r}
+Latinobarometro_2020_Eng |> 
+       ggplot(mapping = aes(x = sexo)) + geom_bar() +
+  labs(title = "Respondents Gender",
+       x = "Gender of Respondents",
+       y = "Number of Respondents")
+```
+
+The graph above shows respondent's gender distribution, where 1 = Man and 2 = Woman. As such, the graph suggests that there were more female-identifying respondents in the study than those who were male-identifying. In the context of my hypothesis, this is a potential benefit as more female-identifying respondents can give a clear indication of their trust in their respective national government.
+
+# Conclusion and Limitations
+
+In conclusion, the aim of this study was to show the relationship between the age, gender, and trust in government for respondents living in Latin America. The data set was obtained from Latinobarometer, a public opinion study that conducts approximately 20,000 interviews annually in 18 countries in Latin America, representing more than 600 million inhabitants. My initial hypothesis proposed that as respondent's age increased so did their trust in their governments, disregarding gender. I also hypothesized that female-identifying respondents had lower trust in their respective government in comparison to their male-identifying counterparts. Overall, there were some notable limitations faced when creating this project. First, I found myself struggling to incorporate different variables from the data set to the Age and Gender variables. For instance, down below, I aimed to filter the variable (p13st.e) that measured respondent's trust in their National Government on the given 1-4 scale. My code kept showing error messages, not allowing me to move beyond the Age and Gender measurements. As a result, I was unable to measure the relationship of respondent's age and gender to their trust in government. For future projects, I aim to filter and organize my data accordingly so that I do not run into coding issues as I did here. Nonetheless, this project is of merit in identifying the relationship between non-changing variables (such as one's age and gender) and the impact they have on one's political views.
+
+```{r}
+# Limitations in Code 
+# Latinobarometro_2020_Eng <- Latinobarometro_2020_Eng |> 
+#  mutate(p13st.e = case_when(
+#  p13st.e <= 1 ~ "Trust in Governemnt"
+#  p13st.e <= 2 ~ "Some trust in Government"
+# p13st.e <= 3 ~ "Little trust in Government"
+# p13st.e <= 4 ~ "No trust in Governmnet"))
+```
